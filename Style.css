@@ -1,0 +1,204 @@
+@CHARSET "UTF-8";
+
+body{
+    height: 100%;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top:20px;
+    margin-bottom: 20px;
+}
+
+.navbar{
+    position: relative;
+    left: 20px;
+    display: inline;
+}
+.button-nav{
+    position: relative;
+    background-color: rgb(104, 100, 100);
+    color: black;
+    width: auto;
+    height: 20px;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    border : 2px solid black;
+}
+
+.inputs{
+    background-color: white;
+    color:black;
+    border: 2px solid black;
+    margin-left: 25px;
+    margin-right: 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    padding: 5px;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    width: auto;
+    height: 20px;
+}
+
+.input-from{
+    background-color: white;
+    color:black;
+    border: 2px solid black;
+    margin-left: 15px;
+    margin-right: 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    padding: 5px;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    width: auto;
+    height: 20px;
+}
+
+.input-version{
+    background-color: white;
+    color:black;
+    border: 2px solid black;
+    margin-left: 25px;
+    margin-right: 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    padding: 5px;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    width: 50px;
+    height: 20px;
+}
+
+.semi-square {
+    -webkit-border: 2px;
+    -moz-border: 2px;
+    border: 2px;
+ }
+
+.select-form{
+    color: black;
+    background-color:white;
+    border: 2px solid black;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 2px 5px;
+    width: 150px;
+    height: 33px;
+}
+
+.main{
+    height: 500px;
+    border: 2px solid black;
+    padding: 20px;
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: bold;
+}
+
+.div-main{
+    visibility: hidden;
+    margin:10px;
+}
+.newforms{
+    /*visibility: hidden;*/
+}
+.select-rad-number{
+    visibility: hidden;
+}
+
+.add-more-elements{
+    background-color: rgba(68, 68, 68, 0.733);
+    border: 2px solid black;
+    color: black;
+    /*padding: 20px;*/
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    margin: 4px 2px;
+    width:50px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.save-btn{
+
+}
+
+.save-button{
+    background-color: white;
+    color: black;
+    width: 200px;
+    height: 30px;
+    padding: 6px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 14px;
+    margin: 4px 2px;
+    border : 2px solid black;
+    box-shadow: 4px 3px;
+    float: right;
+}
+
+.load-button{
+    background-color: white;
+    border: none;
+    color: black;
+    width: 200px;
+    height: 30px;
+    padding: 6px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    margin: 4px 2px;
+    border : 2px solid black;
+    box-shadow: 4px 3px;
+}
+
+.search-button{
+    background-color: white;
+    border: none;
+    color: black;
+    width: 200px;
+    height: 30px;
+    padding: 6px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    margin: 4px 2px;
+    border : 2px solid black;
+    box-shadow: 4px 3px;
+}
+
+.checkbox-form{
+    width:50px;
+    height: 30px;
+    border: 2px solid black;
+    background-color: white;
+    color: black;
+}

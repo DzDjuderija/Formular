@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="HomeScript.js"></script>
+<link rel="stylesheet" type="text/css" href="Style.css">
+<title>Dzenan_Djuderija</title>
+</head>
+<body>
+<!-- Navigation bar -->
+<nav class="navbar">
+  <form class="form-navbar">
+    <a href = "Home.html" class="button-nav" >Administration</a>
+    <a href = "Formular.html" class="button-nav">Formular</a>
+  </form>
+</nav>
+<!-- Main search section -->
+<div class = "main">
+<form id="form-main" class="start-form">
+		Formular name:<input type="text" id="formname" class="inputs">
+		<input type="submit" value="Search" class="search-button" onclick="displayResults()">
+</form>
+<!-- Display results section -->
+<div class = "div-main" id = "elem-holder">
+	<form id = "dispform-inline" class = "newforms">
+		Element :<input type="text" class="input-from" value="labela">
+		<select class = "select-form semi-square" id = "type-element" onchange = "showHidden()">
+			<option value = "Textbox">Textbox</option>
+			<option value = "Checkbox">Checkbox</option>
+			<option value = "Radio button">Radio buttons</option>
+		</select>
+		<select class = "select-form semi-square" id = "select-radio-number" onselect="selectRadBtn()">
+			<option value = "1">1</option>
+			<option value = "2">2</option>
+			<option value = "3">3</option>
+			<option value = "4">4</option>
+		</select>
+		<select class = "select-form" id = "value-element">
+			<option value = "Mandatory">Mandatory</option>
+			<option value = "None">None</option>
+			<option value = "Numeric">Numeric</option>
+		</select>
+		<input type = "button" class = "add-more-elements" name = "form-add-more" onclick = "addMore()" value = "+">
+		<div class = "save-btn" id = "save-btn">
+			<button class = "save-button" id = "save-button" onclick="saveForm()">SAVE</button>
+		</div>
+		<!--<button type="submit" class = "add-more-elements" name = "form-add-more" onclick="addMore()">More</button> -->
+	</form>
+</div>
+</div>		
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="HomeScript.js"></script>
+<link rel="stylesheet" type="text/css" href="Style.css">
+<title>Formular</title>
+</head>
+<body>
+<!-- Navigation bar -->
+<nav class="navbar">
+  <form class="form-navbar">
+    <a href = "Home.html" class="button-nav" >Administration</a>
+    <a href = "Formular.html" class="button-nav">Formular</a>
+  </form>
+</nav>
+<!-- Main search section -->
+<div class="main">
+<form id="form-main" class ="select-formular">
+    Formular name:
+    <select class = "select-form semi-square" id = "formulars-dropdown" onchange = "">
+		</select>
+    Version <input type = "text" id ="version-input" class="input-version">
+		<input type="submit" value="Load" class ="load-button" onclick="onLoadFormular()">
+</form>
+<!-- Display results section -->
+<div class="div-main" id="body-display">
+  <div class = "save-btn" id = "save-btn">
+		<button class = "save-button" id = "save-button" onclick="saveRes()">SAVE</button>
+	</div>
+</div>	
+</div>
+</body>
+</html>
