@@ -59,22 +59,6 @@ request.onsuccess = function(e){
 	indexFormName = storeForm.index("formName");
 	indexFrmNm = storeElem.index("name");
 
-	/*formNamecursor = indexFormName.get('formular one test');
-	formNamecursor.onsuccess = function(e){
-		console.log("formNamecursor value " + formNamecursor.result);
-		if(formNamecursor.result){
-			var parent = document.getElementById("formulars-dropdown");
-			var newOption = document.createElement("option");
-			newOption.value = formNamecursor.result.formName;
-			var newOptionText = document.createTextNode(formNamecursor.result.formName);
-			newOption.appendChild(newOptionText);
-			parent.appendChild(newOption);
-			console.log("element of cursorElem" + formNamecursor.result.formName);
-		}else{
-			console.log("cursor ends here");
-		}
-		console.log("creating dropdown with elements done...");
-	}*/
 
 	sizeofFormName = storeForm.count();
 	sizeofFormName.onerror = function(e){
@@ -99,7 +83,82 @@ request.onsuccess = function(e){
 	storeElem.put({name:"frm two test", elemID: 1, input: "input", type: "Textbox", numline: 0, value: "None"});
 	storeElem.put({name:"frm two test", elemID: 2, input: "input", type: "Textbox", numline: 0, value: "Numeric"});
 	storeElem.put({name:"frm two test", elemID: 3, input: "input", type: "Checkbox", numline: 0, value: "None"});
+	
+	
+	function getAllItemsForm(callback){
+		var tx_name = db.transaction("FormularName", "readwrite");
+		var storeForm = tx_name.objectStore("FormularName");
+		tx_name.oncomplete = function(e){
+			callback(retValues);
+		};
+	
+		var cursorItems = storeForm.openCursor();
+	
+		cursorItems.onerror = function(e){
+			console.log("error on cursor :" + e);
+		};
+	
+		cursorItems.onsuccess = function(e){
+			var cursor = e.target.result;
+			if(cursor){
+				retValues.push(cursor.value);
+				console.log("values are :" + retValues);
+				cursor.continue();
+			}
+		};
+	}
 
+	getAllItemsForm(function (retValues) {
+		var len = retValues.length;
+		for (var i = 0; i < len; i += 1) {
+			console.log(retValues[i].formName);
+		}
+	});
+
+	function getAllItemsElem(callback){
+		var tx_elem = db.transaction("FormularElements", "readwrite");
+		var storeElem = tx_elem.objectStore("FormularElements");
+		tx_elem.oncomplete = function(e){
+			callback(formValues);
+		};
+	
+		var cursorItems = storeElem.openCursor();
+	
+		cursorItems.onerror = function(e){
+			console.log("error on cursor :" + e);
+		};
+	
+		cursorItems.onsuccess = function(e){
+			var cursor = e.target.result;
+			if(cursor){
+				formValues.push(cursor.value);
+				console.log("values of elem :" + formValues);
+				cursor.continue();
+			}
+		};
+	}
+
+	getAllItemsElem(function (formValues) {
+		var len = formValues.length;
+		for (var i = 0; i < len; i += 1) {
+			console.log(formValues[i]);
+		}
+	});
+	
+	/*var parent = document.getElementById("formulars-dropdown");
+	 var newOption = document.createElement("option");
+	 newOption.value = formNamecursor.result.formName;
+	 var newOptionText = document.createTextNode(formNamecursor.result.formName);
+	 newOption.appendChild(newOptionText);
+	 parent.appendChild(newOption);
+	 console.log("element of cursorElem" + formNamecursor.result.formName);
+	 }else{
+	 	console.log("cursor ends here");
+	 }
+	 console.log("creating dropdown with elements done...");
+	*/
+	
+	
 	tx_name.oncomplete = function(){
 		db.close();
 		console.log("data closed tx_name");
@@ -132,18 +191,26 @@ function onLoadFormular(){
 }
 
 //function for displaying searched results
+let searchedFormular;
 function displayResults(){
-	let searchedFormular;
-	let form;
 	searchedFormular = document.getElementById("formname").value;
 	console.log("searched value is:" + searchedFormular);
 
-	if(getFormularByName(searchedFormular)){
-		displaySearchedFormular(searchedFormular);
-	}else{
-		displayNew();
-	}
+	let isthere = false;
+	var len = retValues.length;
+		for (var i = 0; i < len; i += 1){
+			if(searchedFormular == retValues[i]){
+				isthere = true;
+				console.log("found a match call display...");
+			}else{
+				console.log("not found ...");
+			}
+		}
 
+		if(isthere == false){
+			console.log("create new form ...");
+			displayNew();
+		}
 }
 
 //This function get called when we want to display selected formular first it div elem visible and then loops
